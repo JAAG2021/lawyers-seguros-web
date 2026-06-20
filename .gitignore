@@ -32,3 +32,11 @@ dist-ssr
 *.sw?
 
 .workspace/
+
+public/videos/_raw/
+
+public/images/productos/Linea Prime/
+public/images/productos/Otros Seguros/
+public/images/productos/Proteccion Credito/
+public/images/productos/Proteccion de Bienes/
+public/images/productos/Proteccion Empresas/
