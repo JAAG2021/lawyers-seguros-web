@@ -1,0 +1,24 @@
+Coloca aquí los videos de los heroes (formato MP4, 1080p, idealmente < 5 MB, 5-15 s en loop).
+
+Nombres de archivo esperados por cada página:
+  hero.mp4             -> / (Home)
+  servicios.mp4        -> /servicios
+  industrias.mp4       -> /industrias
+  productos.mp4        -> /productos
+  condominio.mp4       -> /seguros/condominio
+  colegios.mp4         -> /seguros/colegios
+  revision-poliza.mp4  -> /revision-poliza
+  quienes-somos.mp4    -> /quienes-somos
+
+Opcional: una imagen de respaldo (poster) con el mismo nombre y extensión .jpg
+(p. ej. servicios.jpg) para mostrar mientras carga el video.
+
+Mientras no exista el archivo, el hero muestra el fondo azul corporativo (no se rompe).
+
+----------------------------------------------------------------------
+FLUJO DE COMPRESIÓN (recomendado):
+  1. Pon los videos ORIGINALES en  public/videos/_raw/  con el nombre final.
+  2. Desde la carpeta Lawyers_Web ejecuta:  ./comprimir-videos.ps1
+  3. El script deja los videos optimizados (+ poster .jpg) aquí en public/videos/.
+
+Fuentes gratuitas sin atribución: pexels.com/videos, pixabay.com/videos, coverr.co, mixkit.co

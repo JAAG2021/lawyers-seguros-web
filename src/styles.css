@@ -1,0 +1,227 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+
+  --font-display: "Lora", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand tokens (from spec) */
+  --brand-primary: oklch(0.36 0.045 210);     /* #0F3D4A approx */
+  --brand-secondary: oklch(0.55 0.08 180);    /* #1D7A73 */
+  --brand-accent: oklch(0.72 0.12 80);        /* #C69A3A */
+
+  --background: oklch(0.975 0.005 220);       /* #F5F7F8 */
+  --foreground: oklch(0.23 0.025 220);        /* #182A33 */
+  --surface: oklch(1 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--foreground);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--foreground);
+
+  --primary: var(--brand-primary);
+  --primary-foreground: oklch(0.985 0.003 220);
+  --secondary: var(--brand-secondary);
+  --secondary-foreground: oklch(0.99 0 0);
+  --accent: var(--brand-accent);
+  --accent-foreground: oklch(0.18 0.02 220);
+
+  --muted: oklch(0.93 0.008 220);
+  --muted-foreground: oklch(0.48 0.02 220);   /* #5D6A72 */
+
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  --border: oklch(0.9 0.01 220);              /* #d9e2e5 */
+  --input: oklch(0.9 0.01 220);
+  --ring: var(--brand-secondary);
+}
+
+.dark { color-scheme: light; }
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { font-family: var(--font-sans); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    color: var(--color-primary);
+  }
+
+  /* Animated focus: growing left accent border via box-shadow */
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow:
+      inset 3px 0 0 var(--color-secondary),
+      0 0 0 3px color-mix(in oklab, var(--color-secondary) 12%, transparent);
+    transition: box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 1140px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 0.5rem;
+  background: var(--color-secondary);
+  color: var(--color-secondary-foreground);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform .15s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow: 0 8px 24px -12px color-mix(in oklab, var(--color-secondary) 60%, transparent);
+  &:hover { background: color-mix(in oklab, var(--color-secondary) 88%, black); transform: translateY(-1px); }
+}
+
+@utility btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in oklab, var(--color-primary-foreground) 50%, transparent);
+  color: var(--color-primary-foreground);
+  font-weight: 600;
+  font-size: 0.95rem;
+  &:hover { background: color-mix(in oklab, var(--color-primary-foreground) 10%, transparent); }
+}
+
+@utility btn-ghost-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-primary);
+  background: var(--color-surface);
+  font-weight: 600;
+  font-size: 0.9rem;
+  &:hover { border-color: var(--color-secondary); color: var(--color-secondary); }
+}
+
+@utility accent-rule {
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background: var(--color-accent);
+  margin-bottom: 1rem;
+  animation: draw-rule 0.55s ease-out both;
+}
+
+/* ── Keyframes ────────────────────────────────────── */
+
+@keyframes draw-rule {
+  from { width: 0; opacity: 0; }
+  to   { width: 40px; opacity: 1; }
+}
+
+@keyframes hero-item {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes stamp {
+  0%   { opacity: 0; transform: scale(1.25); filter: blur(6px); }
+  60%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes stagger-in {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Hero orchestration utilities ─────────────────── */
+
+@utility animate-hero {
+  animation: hero-item 0.6s ease-out both;
+}
+
+@utility animate-stamp {
+  animation: stamp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Page transition ──────────────────────────────── */
+
+::view-transition-old(root) {
+  animation: 180ms ease-out both fade-out-vt;
+}
+::view-transition-new(root) {
+  animation: 220ms ease-out both fade-in-vt;
+}
+
+@keyframes fade-out-vt {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+@keyframes fade-in-vt {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Reduced motion: disable all animations ─────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

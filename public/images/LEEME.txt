@@ -1,0 +1,25 @@
+Imágenes de fondo para las tarjetas (sección Industrias y catálogo de Productos).
+
+FORMATO: horizontal, mínimo 1200px de ancho, .jpg (o .webp). Idealmente < 300 KB.
+Se muestran detrás de un velo claro, así que el texto siempre queda legible.
+Si una imagen no existe, la tarjeta se ve blanca normal (no se rompe nada).
+
+Coloca cada archivo con EXACTAMENTE el nombre indicado:
+
+== public/images/industrias/ ==
+  construccion.jpg, transporte.jpg, obras-civiles.jpg, frigorificos.jpg,
+  fruticolas.jpg, espectaculos.jpg, retail.jpg, plasticos.jpg, seguridad.jpg,
+  inmobiliaria.jpg, medica.jpg, condominios.jpg, restaurant.jpg,
+  servicios-a-la-mineria.jpg, responsabilidad-profesional.jpg, hogar-y-autos.jpg
+
+== public/images/productos/ ==
+  hogar.jpg, vehiculos.jpg, incendio-sismo.jpg, robo.jpg, arriendo.jpg,
+  accidentes-personales.jpg, perjuicio-por-paralizacion.jpg, rc-general-empresa.jpg,
+  rc-directores-y-ejecutivos.jpg, rc-profesional.jpg, colectivos-vida-salud.jpg,
+  desgravamen.jpg, desempleo.jpg, garantia-credito.jpg, garantia-importacion.jpg,
+  todo-riesgo-construccion.jpg, casco.jpg, vida.jpg, salud.jpg,
+  comunidades-y-edificios.jpg, seguros-bienes-y-empresas.jpg,
+  seguros-individuales-personas.jpg, seguro-complementario-salud.jpg,
+  seguro-catastrofico.jpg, rentas-vitalicias.jpg, agricola.jpg, apv.jpg
+
+Fuentes gratis sin atribución: unsplash.com, pexels.com, pixabay.com
